@@ -3,8 +3,8 @@
 #include<unistd.h>
 int main (void)
 {
-	char v[3] = {'b','c','a'};
-	char buf1, buf2;	
+	char v[3] = {'3','2','1'};
+	char aux1, aux2;	
 	if (fork() != 0)
 	{		
 		//Executo o processo pai
@@ -15,15 +15,14 @@ int main (void)
 	else
 	{
 		//ordena o vetor	
-		buf1 = v[0];
-		buf1 = v[1];
+		aux1 = v[0];
+		aux2 = v[1];
 		v[0] = v[2];
-		v[1] = buf1;
-		v[2] = buf2;
+		v[1] = aux1;
+		v[2] = aux2;
 		exit(0);
 	}
 }
-/* Foram criados 2 processos,o pai e o filho, com o fim
-de comprovar que cada processo tem a sua própria memoria mostrando de
-forma que o processo filho ordenava um dado vetor o pai nao tinha
-acesso ao vetor ordenado. */
+/* Foram criados 2 processos, o pai e o filho, comprovando que cada processo
+ tem a sua própria memoria. Percebemos isso pois o processo filho ordenava um dado vetor 
+e o pai nao tinha acesso ao vetor ordenado. */
